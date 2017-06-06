@@ -1,0 +1,67 @@
+﻿@model Scouting.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        </br>
+        </br>
+
+        <dt>
+            <bold>Robot Stats</bold>
+        </dt>
+
+        </br>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Shooter?</th>
+                </tr>
+                @foreach (var item in Model.Matches)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Shooter )
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TeamID }) |
+    @Html.ActionLink("View/Add Matches", "Index", "Match") |
+    @Html.ActionLink("Back to List", "Index")
+</p>
