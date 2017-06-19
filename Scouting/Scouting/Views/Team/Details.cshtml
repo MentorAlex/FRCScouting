@@ -46,14 +46,26 @@
         <dd>
             <table class="table">
                 <tr>
+                    <th>Match Number</th>
+                    <th>Team Color</th>
+                    <th>Autonomous?</th>
                     <th>Shooter?</th>
+                    <th>Transporter?</th>
+                    <th>Climber?</th>
+                    <th>Score</th>
+                    <th>Result</th>
                 </tr>
                 @foreach (var item in Model.Matches)
                 {
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Shooter )
-                        </td>
+                         <td>@Html.DisplayFor(modelItem => item.MatchID)</td>  
+                         <td>@Html.DisplayFor(modelItem => item.TeamColor)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Autonomous)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Shooter)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Transporter)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Climber)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Score)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Result)</td>
                     </tr>
                 }
             </table>

@@ -48,7 +48,7 @@ namespace Scouting.Controllers
         // POST: Match/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MatchID,TeamID,Score,Result,Shooter")] Match match)
+        public ActionResult Create([Bind(Include = "MatchID,TeamID,Score,Result,Shooter,Autonomous,Climber,Transporter,TeamColor")] Match match)
         {
             if (ModelState.IsValid)
             {
@@ -79,12 +79,9 @@ namespace Scouting.Controllers
             return View(match);
         }
 
-        // POST: Match/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MatchID,TeamID,StatsID,Score,Result")] Match match)
+        public ActionResult Edit([Bind(Include = "MatchID,TeamID,Score,Result,Shooter,Autonomous,Climber,Transporter,TeamColor")] Match match)
         {
             if (ModelState.IsValid)
             {

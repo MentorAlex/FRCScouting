@@ -7,22 +7,57 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
+    <div>
+        @{
+            List<SelectListItem> boolItems = new List<SelectListItem>();
+            boolItems.Add(new SelectListItem
+            {
+                Text = "No",
+                Value = "No"
+            });
+            boolItems.Add(new SelectListItem
+            {
+                Text = "Yes",
+                Value = "Yes",
+            });
+        }
+    </div>
+
+    <div>
+        @{ 
+            List<SelectListItem> colorItems = new List<SelectListItem>();
+            colorItems.Add(new SelectListItem
+            {
+                Text = "Red",
+                Value = "Red"
+            });
+            colorItems.Add(new SelectListItem
+            {
+                Text = "Blue",
+                Value = "Blue"
+            });
+         }
+    </div>
+    
     <div class="form-horizontal">
         <h4>Match</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @* user enters match number *@
         <div class="form-group">
             @Html.LabelFor(model => model.MatchID, "Match Number", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MatchID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MatchID, new { htmlAttributes = new { @class = "form-control", min = 1 } })
                 @Html.ValidationMessageFor(model => model.Result, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @* user chooses team number *@
         <div class="form-group">
             @Html.LabelFor(model => model.TeamID, "Team Number", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -31,36 +66,69 @@
             </div>
         </div>
 
-        @{
-            List<SelectListItem> listItems = new List<SelectListItem>();
-            listItems.Add(new SelectListItem
-            {
-                Text = "No",
-                Value = "No"
-            });
-            listItems.Add(new SelectListItem
-            {
-                Text = "Yes",
-                Value = "Yes",
-            });
-        }
+        @* team color red/blue option *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeamColor, "Team Color", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TeamColor", colorItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TeamColor, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        @* autonomous yes/no option *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Autonomous, "Autonomous?", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Autonomous", boolItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Autonomous, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*shooting yes/no option*@
         <div class="form-group">
             @Html.LabelFor(model => model.Shooter, "Shooter?", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Shooter", listItems, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Shooter", boolItems, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Shooter, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @*<div class="form-group">
+                <div col-md-2> Shooter? </div>
+                <div class="col-md-10">
+                   Yes @Html.RadioButton("Shooter", "Yes")
+                   No  @Html.RadioButton("Shooter", "No")
+                </div>
+            </div>*@
+
+        @* Transporter yes/no option*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Transporter, "Gear Transporter?", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Transporter", boolItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Transporter, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @* Climber yes/no option*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Climber, "Climber?", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Climber", boolItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Climber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @* user types in score *@
         <div class="form-group">
             @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control", min = 0 } })
                 @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @* user types in result *@
         <div class="form-group">
             @Html.LabelFor(model => model.Result, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -75,7 +143,7 @@
             </div>
         </div>
     </div>
-}
+            }
 
 <div>
     @Html.ActionLink("Back to List", "Index")

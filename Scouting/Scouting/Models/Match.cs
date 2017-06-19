@@ -16,8 +16,13 @@ namespace Scouting.Models
        // public int StatsID { get; set; }
         public int Score { get; set; }
         public string Result { get; set; }
+        [Display(Name = "Team Color")]
+        public string TeamColor { get; set; }
 
         public string Shooter { get; set; }
+        public string Climber { get; set; }
+        public string Autonomous { get; set; }
+        public string Transporter { get; set; }
 
         public virtual Team Team { get; set; }
         public virtual Stats Stats { get; set; }
