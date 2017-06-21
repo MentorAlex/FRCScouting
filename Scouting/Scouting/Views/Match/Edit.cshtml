@@ -1,4 +1,6 @@
 ﻿@model Scouting.Models.Match
+@Html.HiddenFor(model => model.MatchNumber)
+@Html.HiddenFor(model => model.MatchID)
 @Html.HiddenFor(model => model.TeamID)
 
 @{
@@ -10,6 +12,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(m => m.MatchNumber)
     @Html.AntiForgeryToken()
 
 

@@ -9,7 +9,10 @@ namespace Scouting.Models
 {
     public class Match
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        public int MatchNumber { get; set; }
+
         [Display(Name = "Match Number")]
         public int MatchID { get; set; }
         public int TeamID { get; set; }
@@ -23,7 +26,7 @@ namespace Scouting.Models
         public string Climber { get; set; }
         public string Autonomous { get; set; }
         public string Transporter { get; set; }
-
+       
         public virtual Team Team { get; set; }
         public virtual Stats Stats { get; set; }
     }

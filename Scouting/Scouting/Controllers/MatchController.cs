@@ -81,7 +81,7 @@ namespace Scouting.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MatchID,TeamID,Score,Result,Shooter,Autonomous,Climber,Transporter,TeamColor")] Match match)
+        public ActionResult Edit([Bind(Include = "MatchNumber,MatchID,TeamID,Score,Result,Shooter,Autonomous,Climber,Transporter,TeamColor")] Match match)
         {
             if (ModelState.IsValid)
             {
