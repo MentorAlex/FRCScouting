@@ -28,6 +28,22 @@
     </div>
 
     <div>
+        @{
+            List<SelectListItem> resultItems = new List<SelectListItem>();
+            resultItems.Add(new SelectListItem
+            {
+                Text = "Lost",
+                Value = "Lost"
+            });
+            resultItems.Add(new SelectListItem
+            {
+                Text = "Won",
+                Value = "Won",
+            });
+        }
+    </div>
+
+    <div>
         @{ 
             List<SelectListItem> colorItems = new List<SelectListItem>();
             colorItems.Add(new SelectListItem
@@ -128,11 +144,11 @@
             </div>
         </div>
 
-        @* user types in result *@
+        @* Result won/lost option*@
         <div class="form-group">
-            @Html.LabelFor(model => model.Result, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Result, "Result:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Result, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("Result", resultItems, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Result, "", new { @class = "text-danger" })
             </div>
         </div>
