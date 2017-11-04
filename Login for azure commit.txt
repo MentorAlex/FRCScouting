@@ -1,0 +1,20 @@
+          
+          
+          
+  Notification:  Azure SQL Secret detected in public GitHub source
+ 
+This message is to notify you that an Azure SQL connection string associated with your subscription was detected in public GitHub code.
+Azure Subscription ID: 73e2dec3-260a-48ed-9a0b-812d3be32495
+GitHub Repo Name: MentorAlex/FRCScouting
+GitHub URL: https://github.com/MentorAlex/FRCScouting/raw/6329dde94d4e657f85b11893787bae13a82aa8d4/Scouting/Scouting/obj/Debug/__TestProfilesForFilePreview__/WWBScouting%20-%20Web%20Deploy.pubxml
+File Name: Scouting/Scouting/obj/Debug/__TestProfilesForFilePreview__/WWBScouting - Web Deploy.pubxml
+Line Number: 28
+GitHub Commit URL: https://github.com/MentorAlex/FRCScouting/commit/6329dde94d4e657f85b11893787bae13a82aa8d4
+GitHub Commit Time: 11/4/2017 8:41:13 PM +00:00        
+          
+          
+          
+          
+          
+          
+<Destination Path="Data Source=wwbscoutingserver.database.windows.net;Initial Catalog=WWBScoutingDB;Persist Security Info=True;User ID=adminusername;Password=wwbserverpassword1!" />
