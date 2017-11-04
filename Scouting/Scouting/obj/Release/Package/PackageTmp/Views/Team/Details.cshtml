@@ -1,0 +1,79 @@
+﻿@model Scouting.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        </br>
+        </br>
+
+        <dt>
+            <bold>Robot Stats</bold>
+        </dt>
+
+        </br>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Match Number</th>
+                    <th>Team Color</th>
+                    <th>Autonomous?</th>
+                    <th>Shooter?</th>
+                    <th>Transporter?</th>
+                    <th>Climber?</th>
+                    <th>Score</th>
+                    <th>Result</th>
+                </tr>
+                @foreach (var item in Model.Matches)
+                {
+                    <tr>
+                         <td>@Html.DisplayFor(modelItem => item.MatchID)</td>  
+                         <td>@Html.DisplayFor(modelItem => item.TeamColor)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Autonomous)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Shooter)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Transporter)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Climber)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Score)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Result)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TeamID }) |
+    @Html.ActionLink("View/Add Matches", "Index", "Match") |
+    @Html.ActionLink("Back to List", "Index")
+</p>

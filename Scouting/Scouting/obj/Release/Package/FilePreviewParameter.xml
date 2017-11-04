@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="WWBScouting" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\alexp\\Desktop\\Scouting\\Scouting\\Scouting\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\alexp\\Desktop\\Scouting\\Scouting\\Scouting\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=wwbscoutingserver.database.windows.net;Initial Catalog=WWBScoutingDB;Persist Security Info=True;User ID=adminusername;Password=wwbserverpassword1!" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\alexp\\Desktop\\Scouting\\Scouting\\Scouting\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ScoutingContext-Web.config Connection String" description="" value="Data Source=wwbscoutingserver.database.windows.net;Initial Catalog=WWBScoutingDB;Persist Security Info=True;User ID=adminusername;Password=wwbserverpassword1!" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\alexp\\Desktop\\Scouting\\Scouting\\Scouting\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ScoutingContext']/@connectionString" />
+  </parameter>
+</parameters>
